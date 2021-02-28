@@ -13,6 +13,8 @@
 		8A95DA1F25EBEB6E000D581A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A95DA1D25EBEB6E000D581A /* Main.storyboard */; };
 		8A95DA2125EBEB6F000D581A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A95DA2025EBEB6F000D581A /* Assets.xcassets */; };
 		8A95DA2425EBEB6F000D581A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A95DA2225EBEB6F000D581A /* LaunchScreen.storyboard */; };
+		8A95DA3A25EC18FC000D581A /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A95DA3925EC18FC000D581A /* FoodTableViewCell.swift */; };
+		8A95DA3D25EC1AF5000D581A /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A95DA3C25EC1AF5000D581A /* FoodViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		8A95DA2025EBEB6F000D581A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A95DA2325EBEB6F000D581A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A95DA2525EBEB6F000D581A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A95DA3925EC18FC000D581A /* FoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
+		8A95DA3C25EC1AF5000D581A /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +81,9 @@
 		8A95DA2D25EBEB8C000D581A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8A95DA2225EBEB6F000D581A /* LaunchScreen.storyboard */,
 				8A95DA1B25EBEB6E000D581A /* ViewController.swift */,
+				8A95DA3925EC18FC000D581A /* FoodTableViewCell.swift */,
+				8A95DA3C25EC1AF5000D581A /* FoodViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -86,6 +91,7 @@
 		8A95DA2E25EBEB99000D581A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8A95DA2225EBEB6F000D581A /* LaunchScreen.storyboard */,
 				8A95DA1D25EBEB6E000D581A /* Main.storyboard */,
 			);
 			path = View;
@@ -162,6 +168,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A95DA1C25EBEB6E000D581A /* ViewController.swift in Sources */,
+				8A95DA3D25EC1AF5000D581A /* FoodViewController.swift in Sources */,
+				8A95DA3A25EC18FC000D581A /* FoodTableViewCell.swift in Sources */,
 				8A95DA1825EBEB6E000D581A /* AppDelegate.swift in Sources */,
 				8A95DA1A25EBEB6E000D581A /* SceneDelegate.swift in Sources */,
 			);
