@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A1F6F4225ED47F800EEF047 /* CategaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1F6F4125ED47F800EEF047 /* CategaryCollectionViewCell.swift */; };
 		8A95DA1825EBEB6E000D581A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A95DA1725EBEB6E000D581A /* AppDelegate.swift */; };
 		8A95DA1A25EBEB6E000D581A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A95DA1925EBEB6E000D581A /* SceneDelegate.swift */; };
 		8A95DA1C25EBEB6E000D581A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A95DA1B25EBEB6E000D581A /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A1F6F4125ED47F800EEF047 /* CategaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategaryCollectionViewCell.swift; sourceTree = "<group>"; };
 		8A95DA1425EBEB6E000D581A /* JMSDJayasekara-COBSCCOMP192P-012.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JMSDJayasekara-COBSCCOMP192P-012.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A95DA1725EBEB6E000D581A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A95DA1925EBEB6E000D581A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				8A95DA1B25EBEB6E000D581A /* ViewController.swift */,
 				8A95DA3925EC18FC000D581A /* FoodTableViewCell.swift */,
 				8A95DA3C25EC1AF5000D581A /* FoodViewController.swift */,
+				8A1F6F4125ED47F800EEF047 /* CategaryCollectionViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 				8A95DA3D25EC1AF5000D581A /* FoodViewController.swift in Sources */,
 				8A95DA3A25EC18FC000D581A /* FoodTableViewCell.swift in Sources */,
 				8A95DA1825EBEB6E000D581A /* AppDelegate.swift in Sources */,
+				8A1F6F4225ED47F800EEF047 /* CategaryCollectionViewCell.swift in Sources */,
 				8A95DA1A25EBEB6E000D581A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

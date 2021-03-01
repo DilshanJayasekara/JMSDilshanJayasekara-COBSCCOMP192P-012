@@ -7,9 +7,12 @@
 
 import UIKit
 
-class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDataSource{
-    
+class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource
+{
     @IBOutlet weak var tblFoodView: UITableView!
+    @IBOutlet weak var collectionCategoryView: UICollectionView!
+    let category = [("Category 01"),("Category 02"),("Category 03"),("Category 04")]
+    
     let foodName = [("Whopper"),("Rodeo King"),("Triple Whopper"),("Chicken Sandwich"),("Chicken Junior")];
     
     let foodDesc = [("Food Item 01"),("Food Item 02"),("Food Item 03"),("Food Item 04"),("Food Item 05")];
@@ -22,10 +25,13 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
                      UIImage(named: "ChickenSandwich"),
                      UIImage(named: "ChickenJunior")]
     let foodOffer = [("0%"),("10%"),("0%"),("0%"),("30%")]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tblFoodView.delegate = self;
-        tblFoodView.dataSource = self
+        tblFoodView.dataSource = self;
+        collectionCategoryView.dataSource = self;
         // Do any additional setup after loading the view.
     }
     
@@ -50,6 +56,15 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
             foodCell.lblFoodOffer.text = self.foodOffer[indexPath.row] + " Off"
         }
         return foodCell;
+    }
+    func collectionView(_ collectionCategoryView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return category.count
+    }
+    
+    func collectionView(_ collectionCategoryView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionCategoryView.dequeueReusableCell(withReuseIdentifier: "CategaryCell", for: indexPath) as! CategaryCollectionViewCell
+        cell.lblFoodCategory.text = self.category[indexPath.row]
+        return cell
     }
     /*
     // MARK: - Navigation
