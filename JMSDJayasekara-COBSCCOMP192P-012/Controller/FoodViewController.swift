@@ -9,6 +9,7 @@ import UIKit
 
 class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource
 {
+    @IBOutlet weak var tblCartView: UITableView!
     @IBOutlet weak var tblFoodView: UITableView!
     @IBOutlet weak var collectionCategoryView: UICollectionView!
     let category = [("Category 01"),("Category 02"),("Category 03"),("Category 04")]
@@ -25,38 +26,51 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
                      UIImage(named: "ChickenSandwich"),
                      UIImage(named: "ChickenJunior")]
     let foodOffer = [("0%"),("10%"),("0%"),("0%"),("30%")]
-    
+    let foodQty   = [(1),(1),(1),(1),(1)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tblFoodView.delegate = self;
         tblFoodView.dataSource = self;
+        tblFoodView.delegate = self;
+        tblCartView.dataSource = self;
         collectionCategoryView.dataSource = self;
         // Do any additional setup after loading the view.
     }
-    
-    func tableView(_ tblFoodView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foodName.count;
+    //This is for food table view and cart
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return foodName.count;
     }
     
-    func tableView(_ tblFoodView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let foodCell = tblFoodView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath) as! FoodTableViewCell
-        foodCell.foodImageCell.image = self.foodImage[indexPath.row]
-        foodCell.lblFoodName.text = self.foodName[indexPath.row]
-        foodCell.lblFoodDesc.text = self.foodDesc[indexPath.row]
-        foodCell.lblFoodPrice.text = "Rs. " + String(self.foodPrice[indexPath.row])
-        foodCell.lblFoodOffer.text = self.foodOffer[indexPath.row]
-        if(foodCell.lblFoodOffer.text == ("0%"))
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if(tableView == tblFoodView)
         {
-            foodCell.lblFoodOffer.isHidden = true;
-            
+            let foodCell = tblFoodView.dequeueReusableCell(withIdentifier: "FoodCell", for: indexPath) as! FoodTableViewCell
+            foodCell.foodImageCell.image = self.foodImage[indexPath.row]
+            foodCell.lblFoodName.text = self.foodName[indexPath.row]
+            foodCell.lblFoodDesc.text = self.foodDesc[indexPath.row]
+            foodCell.lblFoodPrice.text = "Rs. " + String(self.foodPrice[indexPath.row])
+            foodCell.lblFoodOffer.text = self.foodOffer[indexPath.row]
+            if(foodCell.lblFoodOffer.text == ("0%"))
+            {
+                foodCell.lblFoodOffer.isHidden = true;
+            }
+            else
+            {
+                foodCell.lblFoodOffer.text = self.foodOffer[indexPath.row] + " Off"
+            }
+            return foodCell;
         }
-        else
+        else if (tableView == tblCartView)
         {
-            foodCell.lblFoodOffer.text = self.foodOffer[indexPath.row] + " Off"
+            let cartCell = tblCartView.dequeueReusableCell(withIdentifier: "CartCell", for: indexPath) as! CartTableViewCell
+            cartCell.lblName.text = self.foodName[indexPath.row]
+            cartCell.lblPrice.text = String(self.foodPrice[indexPath.row])
+            return cartCell;
         }
-        return foodCell;
+        return UITableViewCell()
     }
+    //This is for category
     func collectionView(_ collectionCategoryView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return category.count
     }

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-let category = [("Category 01"),("Category 02"),("Category 03"),("Category 04")]
 class CategaryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblFoodCategory: UILabel!
     
