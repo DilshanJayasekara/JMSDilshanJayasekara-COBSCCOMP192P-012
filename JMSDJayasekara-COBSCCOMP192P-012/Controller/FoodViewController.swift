@@ -12,6 +12,7 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
     @IBOutlet weak var tblCartView: UITableView!
     @IBOutlet weak var tblFoodView: UITableView!
     @IBOutlet weak var collectionCategoryView: UICollectionView!
+    @IBOutlet weak var lblItem: UILabel!
     let category = [("Category 01"),("Category 02"),("Category 03"),("Category 04")]
     
     let foodName = [("Whopper"),("Rodeo King"),("Triple Whopper"),("Chicken Sandwich"),("Chicken Junior")];
@@ -72,6 +73,7 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
     }
     //This is for category
     func collectionView(_ collectionCategoryView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        lblItem.text = "Item "+String(foodName.count)
         return category.count
     }
     
