@@ -19,9 +19,12 @@
 		8A95DA2425EBEB6F000D581A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A95DA2225EBEB6F000D581A /* LaunchScreen.storyboard */; };
 		8A95DA3A25EC18FC000D581A /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A95DA3925EC18FC000D581A /* FoodTableViewCell.swift */; };
 		8A95DA3D25EC1AF5000D581A /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A95DA3C25EC1AF5000D581A /* FoodViewController.swift */; };
+		8AB46DF825F112800024824F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB46DF725F112800024824F /* GoogleService-Info.plist */; };
+		C7EAA49D352787866DD45ACD /* Pods_JMSDJayasekara_COBSCCOMP192P_012.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F82581AAE08CF4B5D766184B /* Pods_JMSDJayasekara_COBSCCOMP192P_012.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		031B9B8F4C16BA35F3E41E9C /* Pods-JMSDJayasekara-COBSCCOMP192P-012.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMSDJayasekara-COBSCCOMP192P-012.debug.xcconfig"; path = "Target Support Files/Pods-JMSDJayasekara-COBSCCOMP192P-012/Pods-JMSDJayasekara-COBSCCOMP192P-012.debug.xcconfig"; sourceTree = "<group>"; };
 		8A04BE3625F0F62B00B89405 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		8A04BE3925F0F67900B89405 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		8A07BD2F25EE397E00A873B4 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
@@ -36,6 +39,9 @@
 		8A95DA2525EBEB6F000D581A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A95DA3925EC18FC000D581A /* FoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
 		8A95DA3C25EC1AF5000D581A /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
+		8AB46DF725F112800024824F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EA6E9391261D14D5AFF0650C /* Pods-JMSDJayasekara-COBSCCOMP192P-012.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMSDJayasekara-COBSCCOMP192P-012.release.xcconfig"; path = "Target Support Files/Pods-JMSDJayasekara-COBSCCOMP192P-012/Pods-JMSDJayasekara-COBSCCOMP192P-012.release.xcconfig"; sourceTree = "<group>"; };
+		F82581AAE08CF4B5D766184B /* Pods_JMSDJayasekara_COBSCCOMP192P_012.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JMSDJayasekara_COBSCCOMP192P_012.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,12 +49,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7EAA49D352787866DD45ACD /* Pods_JMSDJayasekara_COBSCCOMP192P_012.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1795F8930338FFED9FFF0805 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F82581AAE08CF4B5D766184B /* Pods_JMSDJayasekara_COBSCCOMP192P_012.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		66F25896CF08AB34C3A6A9B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				031B9B8F4C16BA35F3E41E9C /* Pods-JMSDJayasekara-COBSCCOMP192P-012.debug.xcconfig */,
+				EA6E9391261D14D5AFF0650C /* Pods-JMSDJayasekara-COBSCCOMP192P-012.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8A07BD2825EE352200A873B4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +86,8 @@
 			children = (
 				8A95DA1625EBEB6E000D581A /* JMSDJayasekara-COBSCCOMP192P-012 */,
 				8A95DA1525EBEB6E000D581A /* Products */,
+				66F25896CF08AB34C3A6A9B6 /* Pods */,
+				1795F8930338FFED9FFF0805 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +108,7 @@
 				8A95DA1725EBEB6E000D581A /* AppDelegate.swift */,
 				8A95DA1925EBEB6E000D581A /* SceneDelegate.swift */,
 				8A95DA2025EBEB6F000D581A /* Assets.xcassets */,
+				8AB46DF725F112800024824F /* GoogleService-Info.plist */,
 				8A95DA2525EBEB6F000D581A /* Info.plist */,
 			);
 			path = "JMSDJayasekara-COBSCCOMP192P-012";
@@ -116,9 +144,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A95DA2825EBEB6F000D581A /* Build configuration list for PBXNativeTarget "JMSDJayasekara-COBSCCOMP192P-012" */;
 			buildPhases = (
+				8A21369499F2C458B19BCF4A /* [CP] Check Pods Manifest.lock */,
 				8A95DA1025EBEB6E000D581A /* Sources */,
 				8A95DA1125EBEB6E000D581A /* Frameworks */,
 				8A95DA1225EBEB6E000D581A /* Resources */,
+				C4137C8B3C083A3E71DB3657 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,12 +197,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A95DA2425EBEB6F000D581A /* LaunchScreen.storyboard in Resources */,
+				8AB46DF825F112800024824F /* GoogleService-Info.plist in Resources */,
 				8A95DA2125EBEB6F000D581A /* Assets.xcassets in Resources */,
 				8A95DA1F25EBEB6E000D581A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8A21369499F2C458B19BCF4A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JMSDJayasekara-COBSCCOMP192P-012-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4137C8B3C083A3E71DB3657 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JMSDJayasekara-COBSCCOMP192P-012/Pods-JMSDJayasekara-COBSCCOMP192P-012-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JMSDJayasekara-COBSCCOMP192P-012/Pods-JMSDJayasekara-COBSCCOMP192P-012-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JMSDJayasekara-COBSCCOMP192P-012/Pods-JMSDJayasekara-COBSCCOMP192P-012-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8A95DA1025EBEB6E000D581A /* Sources */ = {
@@ -331,6 +404,7 @@
 		};
 		8A95DA2925EBEB6F000D581A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 031B9B8F4C16BA35F3E41E9C /* Pods-JMSDJayasekara-COBSCCOMP192P-012.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -350,6 +424,7 @@
 		};
 		8A95DA2A25EBEB6F000D581A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA6E9391261D14D5AFF0650C /* Pods-JMSDJayasekara-COBSCCOMP192P-012.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
