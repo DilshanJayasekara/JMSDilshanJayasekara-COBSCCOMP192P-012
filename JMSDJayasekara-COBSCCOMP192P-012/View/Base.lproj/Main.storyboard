@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gxJ-rv-7ca">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iHu-qz-KgI">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -12,7 +12,7 @@
         <!--Location-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Location" id="BYZ-38-t0r" customClass="ViewController" customModule="JMSDJayasekara_COBSCCOMP192P_012" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LOCATION_VIEW" title="Location" id="BYZ-38-t0r" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -773,10 +773,10 @@
             </objects>
             <point key="canvasLocation" x="390" y="78"/>
         </scene>
-        <!--Login-->
+        <!--SignIn-->
         <scene sceneID="3WI-hU-4mH">
             <objects>
-                <viewController title="Login" id="iHu-qz-KgI" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LOGIN_VIEW" title="SignIn" id="iHu-qz-KgI" customClass="SignInViewController" customModule="JMSDJayasekara_COBSCCOMP192P_012" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GhZ-wI-tCn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -829,7 +829,7 @@
                                     <color key="titleColor" systemColor="systemBackgroundColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="LWn-ih-g2J"/>
+                                    <action selector="SignInClick:" destination="iHu-qz-KgI" eventType="touchUpInside" id="HeD-nm-ujL"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Bs2-Pq-FiJ">
@@ -868,6 +868,10 @@
                             <constraint firstItem="eml-NO-fTR" firstAttribute="top" secondItem="G6T-dN-RS2" secondAttribute="bottom" constant="20" id="zbl-Q4-jQX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="txtEmail" destination="KO3-2x-xbS" id="3Sl-eI-6ZG"/>
+                        <outlet property="txtPassword" destination="qE2-xX-h1Q" id="UVx-Fn-JmQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QlN-dq-Als" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
