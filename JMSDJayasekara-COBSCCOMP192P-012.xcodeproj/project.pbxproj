@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,8 @@
 		8A95DA3A25EC18FC000D581A /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A95DA3925EC18FC000D581A /* FoodTableViewCell.swift */; };
 		8A95DA3D25EC1AF5000D581A /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A95DA3C25EC1AF5000D581A /* FoodViewController.swift */; };
 		8AB46DF825F112800024824F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8AB46DF725F112800024824F /* GoogleService-Info.plist */; };
+		8AC09C7F25F11BFE00874282 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC09C7E25F11BFE00874282 /* SignInViewController.swift */; };
+		8AC09C8225F11C0F00874282 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC09C8125F11C0F00874282 /* SignUpViewController.swift */; };
 		C7EAA49D352787866DD45ACD /* Pods_JMSDJayasekara_COBSCCOMP192P_012.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F82581AAE08CF4B5D766184B /* Pods_JMSDJayasekara_COBSCCOMP192P_012.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,8 @@
 		8A95DA3925EC18FC000D581A /* FoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
 		8A95DA3C25EC1AF5000D581A /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		8AB46DF725F112800024824F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8AC09C7E25F11BFE00874282 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		8AC09C8125F11C0F00874282 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		EA6E9391261D14D5AFF0650C /* Pods-JMSDJayasekara-COBSCCOMP192P-012.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JMSDJayasekara-COBSCCOMP192P-012.release.xcconfig"; path = "Target Support Files/Pods-JMSDJayasekara-COBSCCOMP192P-012/Pods-JMSDJayasekara-COBSCCOMP192P-012.release.xcconfig"; sourceTree = "<group>"; };
 		F82581AAE08CF4B5D766184B /* Pods_JMSDJayasekara_COBSCCOMP192P_012.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JMSDJayasekara_COBSCCOMP192P_012.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -70,7 +74,6 @@
 				031B9B8F4C16BA35F3E41E9C /* Pods-JMSDJayasekara-COBSCCOMP192P-012.debug.xcconfig */,
 				EA6E9391261D14D5AFF0650C /* Pods-JMSDJayasekara-COBSCCOMP192P-012.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -124,6 +127,8 @@
 				8A07BD2F25EE397E00A873B4 /* CartTableViewCell.swift */,
 				8A04BE3625F0F62B00B89405 /* OrderViewController.swift */,
 				8A04BE3925F0F67900B89405 /* OrderTableViewCell.swift */,
+				8AC09C7E25F11BFE00874282 /* SignInViewController.swift */,
+				8AC09C8125F11C0F00874282 /* SignUpViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AC09C8225F11C0F00874282 /* SignUpViewController.swift in Sources */,
 				8A95DA1C25EBEB6E000D581A /* ViewController.swift in Sources */,
 				8A95DA3D25EC1AF5000D581A /* FoodViewController.swift in Sources */,
 				8A95DA3A25EC18FC000D581A /* FoodTableViewCell.swift in Sources */,
@@ -260,6 +266,7 @@
 				8A95DA1A25EBEB6E000D581A /* SceneDelegate.swift in Sources */,
 				8A04BE3A25F0F67900B89405 /* OrderTableViewCell.swift in Sources */,
 				8A07BD3025EE397E00A873B4 /* CartTableViewCell.swift in Sources */,
+				8AC09C7F25F11BFE00874282 /* SignInViewController.swift in Sources */,
 				8A04BE3725F0F62B00B89405 /* OrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
