@@ -19,7 +19,7 @@ class SignUpViewController: UIViewController {
     @IBAction func SignUpClick(_ sender: Any) {
         SignUp();
     }
-   
+    var ref: DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -87,8 +87,11 @@ class SignUpViewController: UIViewController {
                 }
               } else {
                 print("User signs up successfully")
-                let newUserInfo = Auth.auth().currentUser
-                let email = newUserInfo?.email
+                //let newUserInfo = Auth.auth().currentUser
+                //let email = newUserInfo?.email
+                
+                self.ref = Database.database().reference()
+                self.ref.child("users").child(self.txtMobile.text ?? "0").setValue(["email": self.txtEmail.text!])
                 let alert = UIAlertController(title: "Success", message: "Email Registered SuccessFully..!", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                             self.present(alert, animated: true, completion: nil)

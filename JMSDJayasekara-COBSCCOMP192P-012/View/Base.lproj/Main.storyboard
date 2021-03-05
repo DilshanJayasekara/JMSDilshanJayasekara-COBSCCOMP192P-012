@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iHu-qz-KgI">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -635,7 +635,7 @@
         <!--Main-->
         <scene sceneID="GCw-j1-LOq">
             <objects>
-                <tabBarController title="Main" id="oh4-I7-MnH" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MAIN" title="Main" id="oh4-I7-MnH" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ceI-qq-DbM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -700,7 +700,7 @@
                                             <constraint firstAttribute="height" constant="40" id="zGf-b3-eNz"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dz6-YB-fi5">
                                         <rect key="frame" x="0.0" y="144" width="315" height="40"/>
@@ -708,7 +708,7 @@
                                             <constraint firstAttribute="height" constant="40" id="3u1-dE-1CG"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -878,9 +878,6 @@
             <point key="canvasLocation" x="-906.39999999999998" y="77.811094452773617"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="6Jz-Au-Xfy"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="location-permission" width="1073" height="968"/>
         <systemColor name="labelColor">

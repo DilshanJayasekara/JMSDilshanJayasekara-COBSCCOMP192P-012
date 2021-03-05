@@ -24,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "8652712B-200E-4346-8BF4-6777F755D8DA"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "JMSDJayasekara-COBSCCOMP192P-012/Controller/CategaryCollectionViewCell.swift"
