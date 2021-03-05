@@ -6,9 +6,15 @@
 //
 
 import UIKit
-
-class ViewController: UIViewController {
-
+import CoreLocation
+class ViewController: UIViewController, CLLocationManagerDelegate {
+    @IBAction func AllowClick(_ sender: Any) {
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.requestAlwaysAuthorization()
+    }
+    
+    var locationManager: CLLocationManager?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

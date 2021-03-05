@@ -20,5 +20,113 @@
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8652712B-200E-4346-8BF4-6777F755D8DA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JMSDJayasekara-COBSCCOMP192P-012/Controller/CategaryCollectionViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "CategaryCollectionViewCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "8652712B-200E-4346-8BF4-6777F755D8DA - 3df389283e9f356f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JMSDJayasekara_COBSCCOMP192P_012.CategaryCollectionViewCell.lblFoodCategory.getter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "JMSDJayasekara-COBSCCOMP192P-012"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dilshanjayasekara/Documents/IOS/App/JMSDJayasekara-COBSCCOMP192P-012/JMSDJayasekara-COBSCCOMP192P-012/Controller/CategaryCollectionViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "8652712B-200E-4346-8BF4-6777F755D8DA - 3df389283e9f356f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JMSDJayasekara_COBSCCOMP192P_012.CategaryCollectionViewCell.lblFoodCategory.setter : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "JMSDJayasekara-COBSCCOMP192P-012"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dilshanjayasekara/Documents/IOS/App/JMSDJayasekara-COBSCCOMP192P-012/JMSDJayasekara-COBSCCOMP192P-012/Controller/CategaryCollectionViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "148">
+               </Location>
+               <Location
+                  uuid = "8652712B-200E-4346-8BF4-6777F755D8DA - c924da6ca8dc271d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JMSDJayasekara_COBSCCOMP192P_012.CategaryCollectionViewCell.lblFoodCategory.modify : Swift.Optional&lt;__C.UILabel&gt;"
+                  moduleName = "JMSDJayasekara-COBSCCOMP192P-012"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dilshanjayasekara/Documents/IOS/App/JMSDJayasekara-COBSCCOMP192P-012/JMSDJayasekara-COBSCCOMP192P-012/Controller/CategaryCollectionViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "8652712B-200E-4346-8BF4-6777F755D8DA - 38ae0f26dc224f05"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JMSDJayasekara_COBSCCOMP192P_012.CategaryCollectionViewCell.lblFoodCategory.modify : Swift.Optional&lt;__C.UILabel&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "JMSDJayasekara-COBSCCOMP192P-012"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dilshanjayasekara/Documents/IOS/App/JMSDJayasekara-COBSCCOMP192P-012/JMSDJayasekara-COBSCCOMP192P-012/Controller/CategaryCollectionViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "8652712B-200E-4346-8BF4-6777F755D8DA - f5114029b11d7ce0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JMSDJayasekara_COBSCCOMP192P_012.CategaryCollectionViewCell.init(frame: __C.CGRect) -&gt; JMSDJayasekara_COBSCCOMP192P_012.CategaryCollectionViewCell"
+                  moduleName = "JMSDJayasekara-COBSCCOMP192P-012"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dilshanjayasekara/Documents/IOS/App/JMSDJayasekara-COBSCCOMP192P-012/JMSDJayasekara-COBSCCOMP192P-012/Controller/CategaryCollectionViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "116">
+               </Location>
+               <Location
+                  uuid = "8652712B-200E-4346-8BF4-6777F755D8DA - 21f664e5aebb681c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JMSDJayasekara_COBSCCOMP192P_012.CategaryCollectionViewCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;JMSDJayasekara_COBSCCOMP192P_012.CategaryCollectionViewCell&gt;"
+                  moduleName = "JMSDJayasekara-COBSCCOMP192P-012"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dilshanjayasekara/Documents/IOS/App/JMSDJayasekara-COBSCCOMP192P-012/JMSDJayasekara-COBSCCOMP192P-012/Controller/CategaryCollectionViewCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
