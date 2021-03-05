@@ -6,32 +6,45 @@
 //
 
 import UIKit
-
+import Firebase
+public struct Order: Codable {
+    let id :String?
+    let status: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case status
+    }
+}
 class OrderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-   
-    let status = [("3 min left"),("Ready to Pick up")]
-    let orderId = [("Order Id 01"),("Order Id 02")]
-  
+    let db = Firestore.firestore()
+    var orders = [Order]()
+    
     @IBOutlet weak var tblOrderView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tblOrderView.dataSource = self
         tblOrderView.delegate   =  self
+        orders.removeAll()
+        getOrderDetails()
+        self.tblOrderView.reloadData()
         // Do any additional setup after loading the view.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orderId.count
-        
+        return orders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (tableView == tblOrderView)
         {
             let cartCell = tblOrderView.dequeueReusableCell(withIdentifier: "OrderCell", for: indexPath) as! OrderTableViewCell
-                        cartCell.lblStatus.text = self.status[indexPath.row]
-                        cartCell.lblOrderId.text = self.orderId[indexPath.row]
-                        return cartCell;
+                        //cartCell.lblStatus.text = self.statusDb[indexPath.row]
+                        //cartCell.lblOrderId.text = self.orderIdDb[indexPath.row]
+            cartCell.lblOrderId.text = orders[indexPath.row].id
+            cartCell.lblStatus.text  = orders[indexPath.row].status
+            return cartCell;
         }
         else
         {
@@ -39,7 +52,24 @@ class OrderViewController: UIViewController, UITableViewDataSource, UITableViewD
         }
     }
     
-
+    func getOrderDetails(){
+        db.collection("Orders").document("0776061579").collection("Order").addSnapshotListener { (snapshot, err) in
+                if err != nil {
+                    print(err?.localizedDescription ?? nil)
+                }else{
+                    if snapshot?.isEmpty != true {
+                        self.orders.removeAll()
+                        for document in snapshot!.documents{
+                            let documentID = document.documentID
+                            let status     = document.get("status")
+                            let newTask = Order(id: documentID as? String, status: status as? String)
+                                self.orders.append(newTask)
+                            }
+                    }
+                    self.tblOrderView.reloadData()
+                }
+            }
+        }
     /*
     // MARK: - Navigation
 
