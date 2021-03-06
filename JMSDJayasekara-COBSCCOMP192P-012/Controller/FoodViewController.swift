@@ -34,12 +34,28 @@ public struct Category: Codable{
 
 public struct Cart: Codable{
     let foodName :String?
+    let qty :String?
+    let price :String?
+    let amount :String?
+    let discount :String?
     enum CodingKeys: String, CodingKey {
         case foodName
+        case qty
+        case price
+        case amount
+        case discount
+        
     }
 }
-class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate
+class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, YourCellDelegate
 {
+    func didPressMinButton(_ tag: Int) {
+        print("I have pressed min button with a tag: \(tag)")
+    }
+    func didPressAddButton(_ tag: Int) {
+        print("I have pressed  add button with a tag: \(tag)")
+    }
+    
     @IBOutlet weak var tblCartView: UITableView!
     @IBOutlet weak var tblFoodView: UITableView!
     @IBOutlet weak var collectionCategoryView: UICollectionView!
@@ -69,12 +85,15 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         tblFoodView.delegate = self;
         tblFoodView.dataSource = self;
-        tblFoodView.delegate = self;
+        tblCartView.delegate = self;
         tblCartView.dataSource = self;
         collectionCategoryView.dataSource = self;
         collectionCategoryView.delegate = self;
-        getCategories()
+        getCategoriesDetails()
         self.collectionCategoryView.reloadData()
+        self.tblFoodView.reloadData()
+        self.tblCartView.reloadData()
+        getCartsDetails()
         // Do any additional setup after loading the view.
     }
     //This is for food table view and cart
@@ -85,6 +104,7 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
         }
         else if(tableView == tblCartView)
         {
+            lblItem.text = "Item "+String(carts.count)
             return carts.count;
         }
         else
@@ -108,22 +128,36 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
             }
             else
             {
-                foodCell.lblFoodOffer.text = self.foods[indexPath.row].foodOffer ?? "" + " Off"
+                foodCell.lblFoodOffer.text = "\(self.foods[indexPath.row].foodOffer ?? "")% off"
             }
             return foodCell;
         }
         else if (tableView == tblCartView)
         {
             let cartCell = tblCartView.dequeueReusableCell(withIdentifier: "CartCell", for: indexPath) as! CartTableViewCell
-            cartCell.lblName.text = self.foods[indexPath.row].foodName ?? ""
-            cartCell.lblPrice.text = String(self.foods[indexPath.row].foodPrice ?? "")
+            cartCell.lblName.text = self.carts[indexPath.row].foodName ?? ""
+            cartCell.lblPrice.text = self.carts[indexPath.row].amount ?? ""
+            cartCell.lblQty.text =  self.carts[indexPath.row].qty ?? ""
+            cartCell.cellDelegate = self
+            cartCell.btnRemove.tag = indexPath.row
+            cartCell.btnAdd.tag    = indexPath.row
             return cartCell;
         }
         return UITableViewCell()
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (tableView == tblFoodView)
+        {
+            print(foods[indexPath.row].foodName ?? "")
+        }
+        else if (tableView == tblCartView)
+        {
+            print("Action")
+            print(carts[indexPath.row].foodName ?? "")
+        }
+    }
     //This is for category
     func collectionView(_ collectionCategoryView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       // lblItem.text = "Item "+String(carts.count)
         return categories.count
     }
     
@@ -135,9 +169,9 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
     
     func collectionView(_ collectionCategoryView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(categories[indexPath.row].category ?? "")
-        getFoods(category: categories[indexPath.row].category ?? "")
+        getFoodsDetails(category: categories[indexPath.row].category ?? "")
     }
-    func getCategories()
+    func getCategoriesDetails()
     {
         categories.removeAll()
         db.collection("Foods").addSnapshotListener { (snapshot, err) in
@@ -154,11 +188,11 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
                     }
                     
                     self.collectionCategoryView.reloadData()
-                    self.getFoods(category: self.categories[0].category ?? "")
+                    self.getFoodsDetails(category: self.categories[0].category ?? "")
                 }
             }
     }
-    func getFoods(category: String)
+    func getFoodsDetails(category: String)
     {
         foods.removeAll()
         db.collection("Foods").document(category).collection("RodeoKing").addSnapshotListener { (snapshot, err) in
@@ -181,6 +215,31 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
                 }
             }
     }
+    func getCartsDetails()
+    {
+        carts.removeAll()
+        db.collection("Carts").document("0776061579").collection("0776061579").addSnapshotListener { (snapshot, err) in
+                if err != nil {
+                    print(err?.localizedDescription ?? "")
+                }else{
+                    if snapshot?.isEmpty != true {
+                        self.carts.removeAll()
+                        for document in snapshot!.documents{
+                            let name = document.documentID
+                            let price = document.get("price")
+                            let amount = document.get("amount")
+                            let qty = document.get("qty")
+                            let discount = document.get("discount")
+                            let newTask = Cart(foodName: name as? String, qty: qty as? String, price: price as? String, amount: amount as? String, discount: discount as? String)
+                            self.carts.append(newTask)
+                            }
+                    }
+                    self.tblCartView.reloadData()
+                }
+            }
+        
+    }
+    
     /*
     // MARK: - Navigation
 

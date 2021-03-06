@@ -324,9 +324,6 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0z-gX-b1c">
                                         <rect key="frame" x="318.5" y="4.5" width="48.5" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="yJB-Ac-JB1"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -370,6 +367,9 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aug-nD-ZEf">
                                                             <rect key="frame" x="0.0" y="0.0" width="30" height="37"/>
                                                             <state key="normal" title="-"/>
+                                                            <connections>
+                                                                <action selector="btnMinusClick:" destination="Mm8-on-HIi" eventType="touchUpInside" id="jIj-07-8Ip"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7F-xZ-84P">
                                                             <rect key="frame" x="30" y="0.0" width="10.5" height="37"/>
@@ -380,6 +380,9 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGu-Rq-OMW">
                                                             <rect key="frame" x="40.5" y="0.0" width="30" height="37"/>
                                                             <state key="normal" title="+"/>
+                                                            <connections>
+                                                                <action selector="btnAddClick:" destination="Mm8-on-HIi" eventType="touchUpInside" id="8nD-2V-EQU"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -409,6 +412,7 @@
                                             <outlet property="btnRemove" destination="aug-nD-ZEf" id="IBw-DG-71D"/>
                                             <outlet property="lblName" destination="p8y-CO-ew7" id="FSy-5M-SCn"/>
                                             <outlet property="lblPrice" destination="P5b-0e-sSg" id="f47-Lg-33j"/>
+                                            <outlet property="lblQty" destination="R7F-xZ-84P" id="m2T-xF-eB7"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -508,9 +512,10 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ke6-iw-ULp">
-                                                            <rect key="frame" x="336.5" y="0.0" width="38.5" height="20"/>
+                                                            <rect key="frame" x="325" y="0.0" width="50" height="20"/>
                                                             <color key="backgroundColor" systemColor="systemRedColor"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="COb-4c-7O5"/>
                                                                 <constraint firstAttribute="height" constant="20" id="qgy-Vd-0ky"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
