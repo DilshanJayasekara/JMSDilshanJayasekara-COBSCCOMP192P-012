@@ -47,13 +47,44 @@ public struct Cart: Codable{
         
     }
 }
-class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, YourCellDelegate
+class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout ,YourCellDelegate
 {
     func didPressMinButton(_ tag: Int) {
         print("I have pressed min button with a tag: \(tag)")
+        let cartRef = db.collection("Carts").document("0776061579").collection("0776061579").document(carts[tag].foodName!)
+        cartRef.updateData([
+            "name": carts[tag].foodName ?? "",
+            "qty":  FieldValue.increment(Int64(-1)),
+            "price": "100",
+            "amount": "300",
+            "discount": "0"
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+                self.getCartsDetails()
+            }
+        }
     }
     func didPressAddButton(_ tag: Int) {
         print("I have pressed  add button with a tag: \(tag)")
+        let cartRef = db.collection("Carts").document("0776061579").collection("0776061579").document(carts[tag].foodName!)
+        cartRef.updateData([
+            "name": carts[tag].foodName ?? "",
+            "qty":  FieldValue.increment(Int64(1)),
+            "price": "100",
+            "amount": "300",
+            "discount": "0"
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+                self.getCartsDetails()
+                self.tblCartView.reloadData()
+            }
+        }
     }
     
     @IBOutlet weak var tblCartView: UITableView!
@@ -137,7 +168,7 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
             let cartCell = tblCartView.dequeueReusableCell(withIdentifier: "CartCell", for: indexPath) as! CartTableViewCell
             cartCell.lblName.text = self.carts[indexPath.row].foodName ?? ""
             cartCell.lblPrice.text = self.carts[indexPath.row].amount ?? ""
-            cartCell.lblQty.text =  self.carts[indexPath.row].qty ?? ""
+            cartCell.lblQty.text =  self.carts[indexPath.row].qty ?? "0"
             cartCell.cellDelegate = self
             cartCell.btnRemove.tag = indexPath.row
             cartCell.btnAdd.tag    = indexPath.row
@@ -166,7 +197,9 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
         cell.lblFoodCategory.text = self.categories[indexPath.row].category ?? ""
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 150, height: 50 )
+    }
     func collectionView(_ collectionCategoryView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(categories[indexPath.row].category ?? "")
         getFoodsDetails(category: categories[indexPath.row].category ?? "")
@@ -182,7 +215,7 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
                         self.categories.removeAll()
                         for document in snapshot!.documents{
                             let category = document.documentID
-                            let newTask = Category(category: category as? String)
+                            let newTask = Category(category: category)
                                 self.categories.append(newTask)
                             }
                     }
@@ -195,7 +228,7 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
     func getFoodsDetails(category: String)
     {
         foods.removeAll()
-        db.collection("Foods").document(category).collection("RodeoKing").addSnapshotListener { (snapshot, err) in
+        db.collection("Foods").document(category).collection(category).addSnapshotListener { (snapshot, err) in
                 if err != nil {
                     print(err?.localizedDescription ?? "")
                 }else{
@@ -207,7 +240,7 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
                             let desc  = document.get("description")
                             let offer = document.get("offer")
                             let image = document.get("image")
-                            let newTask = Food(foodName: name as? String, foodDesc: desc as? String, foodPrice: price as? String, foodOffer: offer as? String, foodCategory: category as? String, foodImage: image as? String)
+                            let newTask = Food(foodName: name as? String, foodDesc: desc as? String, foodPrice: price as? String, foodOffer: offer as? String, foodCategory: category, foodImage: image as? String)
                                 self.foods.append(newTask)
                             }
                     }
@@ -218,7 +251,9 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
     func getCartsDetails()
     {
         carts.removeAll()
-        db.collection("Carts").document("0776061579").collection("0776061579").addSnapshotListener { (snapshot, err) in
+        let defaults = UserDefaults.standard
+        let mobile = defaults.string(forKey: "mobile")
+        db.collection("Carts").addSnapshotListener { (snapshot, err) in
                 if err != nil {
                     print(err?.localizedDescription ?? "")
                 }else{
@@ -226,13 +261,18 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
                         self.carts.removeAll()
                         for document in snapshot!.documents{
                             let name = document.documentID
-                            let price = document.get("price")
-                            let amount = document.get("amount")
-                            let qty = document.get("qty")
-                            let discount = document.get("discount")
-                            let newTask = Cart(foodName: name as? String, qty: qty as? String, price: price as? String, amount: amount as? String, discount: discount as? String)
-                            self.carts.append(newTask)
+                            let mobilerec = document.get("mobile")
+                            if(mobilerec as? String == mobile)
+                            {
+                                let price = document.get("price")
+                                let amount = document.get("amount")
+                                let qty = document.get("qty")
+                                let discount = document.get("discount")
+                                let newTask = Cart(foodName: name, qty: "\(qty ?? 0)", price: price as? String, amount: amount as? String, discount: discount as? String)
+                                self.carts.append(newTask)
                             }
+                            
+                        }
                     }
                     self.tblCartView.reloadData()
                 }

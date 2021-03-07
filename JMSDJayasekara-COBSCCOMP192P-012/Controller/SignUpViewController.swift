@@ -7,7 +7,7 @@
 
 import UIKit
 import Firebase
-
+import SPAlert
 class SignUpViewController: UIViewController {
 
     @IBOutlet weak var txtMobile: UITextField!
@@ -20,35 +20,28 @@ class SignUpViewController: UIViewController {
         SignUp();
     }
     var ref: DatabaseReference!
+    let db = Firestore.firestore()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
     func  SignUp(){
-        if !isValidEmail(txtEmail.text!){
-            let alert = UIAlertController(title: "Error", message: "Please Enter Correct Email", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+        if txtMobile.text?.isEmpty == true{
+            SPAlert.present(title: "Error", message: "Please Enter Correct Mobile Number", preset: .custom(UIImage.init(named: "Error")!))
             return
         }
-        if txtMobile.text?.isEmpty == true{
-            let alert = UIAlertController(title: "Error", message: "Please Enter Correct Phone Number", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+        if !isValidEmail(txtEmail.text!){
+            SPAlert.present(title: "Error", message: "Email is not allowed..!", preset: .custom(UIImage.init(named: "Error")!))
             return
         }
         if !isValidPassword(txtPassword.text!){
-            let alert = UIAlertController(title: "Error", message: "Please Enter Correct Password", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            SPAlert.present(title: "Error", message: "Please Enter Correct Password", preset: .custom(UIImage.init(named: "Error")!))
             return
         }
         if(txtPassword.text != txtConfirmPassword.text)
         {
-            let alert = UIAlertController(title: "Error", message: "Password Doesn't Match", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            SPAlert.present(title: "Error", message: "Password Doesn't Match", preset: .custom(UIImage.init(named: "Error")!))
             return
         }
         Auth.auth().createUser(withEmail: txtEmail.text!, password: txtPassword.text!) { authResult, error in
@@ -57,44 +50,36 @@ class SignUpViewController: UIViewController {
                 switch AuthErrorCode(rawValue: error.code) {
                 case .operationNotAllowed:
                   // Error: The given sign-in provider is disabled for this Firebase project. Enable it in the Firebase console, under the sign-in method tab of the Auth section.
-                    let alert = UIAlertController(title: "Error", message: "Email is not allowed..!", preferredStyle: .alert)
-                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                                self.present(alert, animated: true, completion: nil)
+                    SPAlert.present(title: "Error", message: "Email is not allowed..!", preset: .custom(UIImage.init(named: "Error")!))
                     break
                 case .emailAlreadyInUse:
                     // Error: The email address is already in use by another account.
-                    let alert = UIAlertController(title: "Error", message: "The email address is already in use by another account.", preferredStyle: .alert)
-                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                                self.present(alert, animated: true, completion: nil)
+                    SPAlert.present(title: "Error", message: "The email address is already in use by another account.", preset: .custom(UIImage.init(named: "Error")!))
                     break
-                  
                 case .invalidEmail:
-                    // Error: The email address is badly formatted.
-                    let alert = UIAlertController(title: "Error", message: "The email address is badly formatted. ", preferredStyle: .alert)
-                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                                self.present(alert, animated: true, completion: nil)
+                    SPAlert.present(title: "Error", message: "The email address is badly formatted", preset: .custom(UIImage.init(named: "Error")!))
                     break
                 case .weakPassword:
-                    let alert = UIAlertController(title: "Error", message: "The password must be 6 characters long or more . ", preferredStyle: .alert)
-                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                                self.present(alert, animated: true, completion: nil)
-                    // Error: The password must be 6 characters long or more.
+                    SPAlert.present(title: "Error", message: "The password must be 6 characters long or more .", preset: .custom(UIImage.init(named: "Error")!))
                     break
                 default:
-                    let alert = UIAlertController(title: "Error", message: "Something is wrong", preferredStyle: .alert)
-                                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                                self.present(alert, animated: true, completion: nil)
+                    SPAlert.present(title: "Error", message: "Something is wrong please check your networks", preset: .custom(UIImage.init(named: "Error")!))
                 }
               } else {
                 print("User signs up successfully")
-                //let newUserInfo = Auth.auth().currentUser
-                //let email = newUserInfo?.email
-                
-                self.ref = Database.database().reference()
-                self.ref.child("users").child(self.txtMobile.text ?? "0").setValue(["email": self.txtEmail.text!])
-                let alert = UIAlertController(title: "Success", message: "Email Registered SuccessFully..!", preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-                            self.present(alert, animated: true, completion: nil)
+                self.db.collection("Users").document(self.txtMobile.text!).setData(["email": self.txtEmail.text!,"mobile" : self.txtMobile.text!],  merge: true){ err in
+                    if let err = err {
+                        print("Error writing document: \(err)")
+                    } else {
+                        print("Document successfully written!")
+                        let defaults = UserDefaults.standard
+                        defaults.set(self.txtMobile.text!, forKey: "useId")
+                        defaults.set(self.txtMobile.text!, forKey: "mobile")
+                        defaults.set(true, forKey: "login")
+                        self.dismiss(animated: true)
+                        self.performSegue(withIdentifier: "SignUptoHome", sender: nil)
+                    }
+                }
               }
                 return
         

@@ -55,14 +55,14 @@ class OrderViewController: UIViewController, UITableViewDataSource, UITableViewD
     func getOrderDetails(){
         db.collection("Orders").document("0776061579").collection("Order").addSnapshotListener { (snapshot, err) in
                 if err != nil {
-                    print(err?.localizedDescription ?? nil)
+                    print(err?.localizedDescription ?? nil ?? "")
                 }else{
                     if snapshot?.isEmpty != true {
                         self.orders.removeAll()
                         for document in snapshot!.documents{
                             let documentID = document.documentID
                             let status     = document.get("status")
-                            let newTask = Order(id: documentID as? String, status: status as? String)
+                            let newTask = Order(id: documentID, status: status as? String)
                                 self.orders.append(newTask)
                             }
                     }

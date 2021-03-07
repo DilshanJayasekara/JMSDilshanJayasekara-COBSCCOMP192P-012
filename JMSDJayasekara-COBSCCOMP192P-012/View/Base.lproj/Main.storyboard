@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oh4-I7-MnH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gxJ-rv-7ca">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -12,7 +12,7 @@
         <!--Location-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LOCATION_VIEW" title="Location" id="BYZ-38-t0r" customClass="ViewController" customModule="JMSDJayasekara_COBSCCOMP192P_012" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LOCATION_VIEW" title="Location" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="JMSDJayasekara_COBSCCOMP192P_012" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,7 +48,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VN4-TV-o5e">
                                         <rect key="frame" x="32" y="8" width="311" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Ydr-d5-x3D"/>
                                         </constraints>
@@ -94,10 +94,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6fV-zf-djF"/>
+                    <connections>
+                        <segue destination="GKV-kC-ovh" kind="presentation" identifier="AllowLocationToHome" id="RmZ-bP-bm3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-242" y="873"/>
+            <point key="canvasLocation" x="-871" y="188"/>
         </scene>
         <!--Orders-->
         <scene sceneID="yef-Ym-NX1">
@@ -180,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nXB-LC-muv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="612" y="2307.7961019490258"/>
+            <point key="canvasLocation" x="1482" y="188"/>
         </scene>
         <!--Profile-->
         <scene sceneID="WlS-hJ-DhD">
@@ -300,7 +303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0Z-ld-NQX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="612" y="3261.3193403298355"/>
+            <point key="canvasLocation" x="1481" y="1101"/>
         </scene>
         <!--Food-->
         <scene sceneID="rY3-qH-iw4">
@@ -323,7 +326,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0z-gX-b1c">
-                                        <rect key="frame" x="318.5" y="4.5" width="48.5" height="21"/>
+                                        <rect key="frame" x="317" y="4.5" width="50" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="yX4-rC-h3B"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -619,7 +625,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="75C-nj-m7U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="612" y="1482.9085457271365"/>
+            <point key="canvasLocation" x="1540" y="-549"/>
         </scene>
         <!--Title-->
         <scene sceneID="Z7J-on-RVe">
@@ -635,12 +641,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yb9-HW-PnO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1412" y="1483"/>
+            <point key="canvasLocation" x="3130" y="-549"/>
         </scene>
         <!--Main-->
         <scene sceneID="GCw-j1-LOq">
             <objects>
-                <tabBarController storyboardIdentifier="MAIN" title="Main" id="oh4-I7-MnH" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MAIN_VIEW" title="Main" id="oh4-I7-MnH" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ceI-qq-DbM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -654,17 +660,25 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IXU-kW-2Di" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-242" y="2021"/>
+            <point key="canvasLocation" x="161" y="188"/>
+        </scene>
+        <!--LOGIN_VIEW-->
+        <scene sceneID="l7T-rA-dVE">
+            <objects>
+                <viewControllerPlaceholder referencedIdentifier="LOGIN_VIEW" id="VhW-b6-XiX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="huD-QX-Olr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2719" y="621"/>
         </scene>
         <!--SignUp-->
         <scene sceneID="E1L-bQ-caW">
             <objects>
-                <viewController storyboardIdentifier="SIGNUP_VIEW" title="SignUp" id="gxJ-rv-7ca" customClass="SignUpViewController" customModule="JMSDJayasekara_COBSCCOMP192P_012" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SIGNUP_VIEW" title="SignUp" modalPresentationStyle="fullScreen" id="gxJ-rv-7ca" customClass="SignUpViewController" customModule="JMSDJayasekara_COBSCCOMP192P_012" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6eN-ri-IA3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NUx-qC-k37">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="NUx-qC-k37">
                                 <rect key="frame" x="67.5" y="75" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="4PN-cQ-Zml"/>
@@ -744,7 +758,7 @@
                                         <rect key="frame" x="166" y="0.0" width="47" height="30"/>
                                         <state key="normal" title="Sign In"/>
                                         <connections>
-                                            <segue destination="iHu-qz-KgI" kind="presentation" modalPresentationStyle="fullScreen" id="6Jz-Au-Xfy"/>
+                                            <segue destination="VhW-b6-XiX" kind="presentation" identifier="SignUptoSignIn" modalPresentationStyle="fullScreen" id="QaQ-FJ-zGx"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -772,11 +786,12 @@
                         <outlet property="txtEmail" destination="qym-Ml-NjE" id="CVa-l3-nw9"/>
                         <outlet property="txtMobile" destination="34L-2G-fLH" id="hWI-vZ-wWG"/>
                         <outlet property="txtPassword" destination="feu-Lg-aFT" id="wS4-lB-a0F"/>
+                        <segue destination="GKV-kC-ovh" kind="presentation" identifier="SignUptoHome" modalPresentationStyle="fullScreen" id="gVu-bf-nvs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADr-vc-etP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="390" y="78"/>
+            <point key="canvasLocation" x="-2119" y="188"/>
         </scene>
         <!--SignIn-->
         <scene sceneID="3WI-hU-4mH">
@@ -786,7 +801,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G6T-dN-RS2">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="G6T-dN-RS2">
                                 <rect key="frame" x="67.5" y="75" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="cIu-eW-5QT"/>
@@ -850,7 +865,7 @@
                                         <rect key="frame" x="215.5" y="0.0" width="50" height="30"/>
                                         <state key="normal" title="SingUp"/>
                                         <connections>
-                                            <segue destination="gxJ-rv-7ca" kind="presentation" modalPresentationStyle="fullScreen" id="IXY-JU-PEj"/>
+                                            <segue destination="gxJ-rv-7ca" kind="presentation" modalPresentationStyle="fullScreen" id="Vk1-Kr-3fd"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -887,18 +902,30 @@
                     <connections>
                         <outlet property="txtEmail" destination="KO3-2x-xbS" id="3Sl-eI-6ZG"/>
                         <outlet property="txtPassword" destination="qE2-xX-h1Q" id="UVx-Fn-JmQ"/>
+                        <segue destination="GKV-kC-ovh" kind="presentation" identifier="SignIntoHome" modalPresentationStyle="fullScreen" id="9u4-Pd-JMy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QlN-dq-Als" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-906.39999999999998" y="77.811094452773617"/>
+            <point key="canvasLocation" x="-3290" y="188"/>
+        </scene>
+        <!--MAIN_VIEW-->
+        <scene sceneID="Bah-70-pB5">
+            <objects>
+                <viewControllerPlaceholder referencedIdentifier="MAIN_VIEW" id="GKV-kC-ovh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="hXY-8E-5sU"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lmw-Ry-3jG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2720" y="-388"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="IXY-JU-PEj"/>
+        <segue reference="gVu-bf-nvs"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="location-permission" width="1073" height="968"/>
+        <image name="logo" width="96" height="96"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

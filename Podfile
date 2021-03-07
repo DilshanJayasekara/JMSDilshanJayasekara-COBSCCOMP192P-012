@@ -13,4 +13,5 @@ pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'Firebase/Database'
+pod 'SPAlert'
 end

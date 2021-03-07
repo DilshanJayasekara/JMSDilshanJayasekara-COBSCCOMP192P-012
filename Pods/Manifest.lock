@@ -336,12 +336,14 @@ PODS:
   - nanopb/decode (2.30907.0)
   - nanopb/encode (2.30907.0)
   - PromisesObjC (1.2.12)
+  - SPAlert (3.0.4)
 
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Firestore
+  - SPAlert
 
 SPEC REPOS:
   trunk:
@@ -364,6 +366,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
+    - SPAlert
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -385,7 +388,8 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  SPAlert: c0e450329878af5c9de96eeae3415fc0736a0095
 
-PODFILE CHECKSUM: 5711bfef786ac3132966d4c0aa1b0f527b3df513
+PODFILE CHECKSUM: 5e29f93c70768344a6493400128b180c812198ef
 
 COCOAPODS: 1.10.1

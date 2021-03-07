@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,10 +13,42 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="R5N-s8-ARi">
+                                <rect key="frame" x="87" y="358" width="240" height="180"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Vwb-s4-A9i">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="144"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIBM Cafetaria" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msL-kn-EZs">
+                                        <rect key="frame" x="0.0" y="144" width="240" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="msL-kn-EZs" firstAttribute="top" secondItem="Vwb-s4-A9i" secondAttribute="bottom" id="00s-Sx-H5j"/>
+                                    <constraint firstAttribute="trailing" secondItem="msL-kn-EZs" secondAttribute="trailing" id="7Fn-cf-Kph"/>
+                                    <constraint firstAttribute="trailing" secondItem="Vwb-s4-A9i" secondAttribute="trailing" id="M0C-WM-moT"/>
+                                    <constraint firstItem="Vwb-s4-A9i" firstAttribute="top" secondItem="R5N-s8-ARi" secondAttribute="top" id="TzB-ou-ugi"/>
+                                    <constraint firstItem="msL-kn-EZs" firstAttribute="top" secondItem="Vwb-s4-A9i" secondAttribute="bottom" id="dxn-1q-rKf"/>
+                                    <constraint firstAttribute="bottom" secondItem="msL-kn-EZs" secondAttribute="bottom" id="eaf-jd-q95"/>
+                                    <constraint firstItem="Vwb-s4-A9i" firstAttribute="leading" secondItem="R5N-s8-ARi" secondAttribute="leading" id="gDT-hV-FfS"/>
+                                    <constraint firstItem="msL-kn-EZs" firstAttribute="leading" secondItem="R5N-s8-ARi" secondAttribute="leading" id="wnY-UF-OmV"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="R5N-s8-ARi" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="3Cw-Ng-tiT"/>
+                            <constraint firstItem="R5N-s8-ARi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Oqn-Vk-naB"/>
+                            <constraint firstItem="R5N-s8-ARi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="314" id="baT-q7-dOc"/>
+                            <constraint firstItem="R5N-s8-ARi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="dJf-I0-7r0"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -22,4 +56,10 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="96" height="96"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

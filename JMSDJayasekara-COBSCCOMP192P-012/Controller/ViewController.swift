@@ -8,32 +8,36 @@
 import UIKit
 import CoreLocation
 class ViewController: UIViewController, CLLocationManagerDelegate {
-    @IBAction func AllowClick(_ sender: Any) {
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.requestAlwaysAuthorization()
-    }
+    let locationManager = CLLocationManager()
     
-    var locationManager: CLLocationManager?
+    @IBAction func AllowClick(_ sender: Any) {
+        if CLLocationManager.locationServicesEnabled() {
+                    switch locationManager.authorizationStatus {
+                    case .restricted, .denied, .notDetermined:
+                        NSLog("Location services disabled")
+                        //displayErrorMessage(message: "Application requires location access to continue!")
+                    case .authorizedAlways, .authorizedWhenInUse:
+                        NSLog("Location services enabled")
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let vc = storyboard.instantiateViewController(identifier: "MAIN" )
+                        vc.modalPresentationStyle = .overFullScreen
+                        self.present(vc, animated: true)
+                    default:
+                        //displayErrorMessage(message: "Application requires location access to continue!")
+                        NSLog("Location services disabled")
+                    }
+                } else {
+                    //isplayWarningMessage(message: "Please enable location services")
+                    print("Please enable location services")
+                }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        locationManager.requestAlwaysAuthorization()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
        
         // Do any additional setup after loading the view.
     }
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        print(status)
-       
-          /*  if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
-                if CLLocationManager.isRangingAvailable() {
-                   //
-                }
-            }*/
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(identifier: "MAIN" )
-            vc.modalPresentationStyle = .overFullScreen
-            self.present(vc, animated: true)
-        
-    }
-
 }
 
