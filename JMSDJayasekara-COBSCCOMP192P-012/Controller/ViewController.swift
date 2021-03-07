@@ -12,24 +12,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func AllowClick(_ sender: Any) {
         if CLLocationManager.locationServicesEnabled() {
-                    switch locationManager.authorizationStatus {
-                    case .restricted, .denied, .notDetermined:
-                        NSLog("Location services disabled")
-                        //displayErrorMessage(message: "Application requires location access to continue!")
-                    case .authorizedAlways, .authorizedWhenInUse:
-                        NSLog("Location services enabled")
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        let vc = storyboard.instantiateViewController(identifier: "MAIN" )
-                        vc.modalPresentationStyle = .overFullScreen
-                        self.present(vc, animated: true)
-                    default:
-                        //displayErrorMessage(message: "Application requires location access to continue!")
-                        NSLog("Location services disabled")
-                    }
-                } else {
-                    //isplayWarningMessage(message: "Please enable location services")
-                    print("Please enable location services")
-                }
+                   switch locationManager.authorizationStatus {
+                   case .restricted, .denied, .notDetermined:
+                       print("Location services disabled")
+                   case .authorizedAlways, .authorizedWhenInUse:
+                       print("Location services enabled")
+                   default:
+                       print("Location services disabled")
+                   }
+               } else {
+                   print("Please enable location services")
+               }
     }
     override func viewWillAppear(_ animated: Bool) {
         locationManager.requestAlwaysAuthorization()

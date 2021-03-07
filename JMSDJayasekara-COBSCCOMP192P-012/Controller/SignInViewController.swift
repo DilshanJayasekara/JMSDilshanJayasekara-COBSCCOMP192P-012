@@ -16,6 +16,7 @@ class SignInViewController: UIViewController {
         SignIn()
         
     }
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -70,6 +71,8 @@ class SignInViewController: UIViewController {
                                 defaults.set(user, forKey: "useId")
                                 defaults.set(mobile, forKey: "mobile")
                                 defaults.set(true, forKey: "login")
+                                
+                                }
                                 self.performSegue(withIdentifier: "SignIntoHome", sender: nil)
                             }
                             
@@ -88,5 +91,5 @@ class SignInViewController: UIViewController {
     }
     */
 
-}
+
 

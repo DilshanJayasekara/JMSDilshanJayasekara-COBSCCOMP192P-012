@@ -67,7 +67,7 @@ class SignUpViewController: UIViewController {
                 }
               } else {
                 print("User signs up successfully")
-                self.db.collection("Users").document(self.txtMobile.text!).setData(["email": self.txtEmail.text!,"mobile" : self.txtMobile.text!],  merge: true){ err in
+                self.db.collection("Users").document(self.txtEmail.text!).setData(["email": self.txtEmail.text!,"mobile" : self.txtMobile.text!],  merge: true){ err in
                     if let err = err {
                         print("Error writing document: \(err)")
                     } else {

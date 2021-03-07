@@ -180,6 +180,9 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
         if (tableView == tblFoodView)
         {
             print(foods[indexPath.row].foodName ?? "")
+            UserDefaults.standard.set(foods[indexPath.row].foodName, forKey: "foodId")
+            print(foods[indexPath.row].foodCategory ?? "")
+            UserDefaults.standard.set(foods[indexPath.row].foodCategory, forKey: "foodCategory")
         }
         else if (tableView == tblCartView)
         {
@@ -187,6 +190,7 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
             print(carts[indexPath.row].foodName ?? "")
         }
     }
+    
     //This is for category
     func collectionView(_ collectionCategoryView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
