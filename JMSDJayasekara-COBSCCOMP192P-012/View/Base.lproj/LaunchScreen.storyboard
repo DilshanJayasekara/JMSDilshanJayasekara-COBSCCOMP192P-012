@@ -40,14 +40,25 @@
                                     <constraint firstItem="msL-kn-EZs" firstAttribute="leading" secondItem="R5N-s8-ARi" secondAttribute="leading" id="wnY-UF-OmV"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powerd By NIBM Computing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2N-u8-CDP">
+                                <rect key="frame" x="99" y="831.5" width="216" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="216" id="JHv-am-fxB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="R5N-s8-ARi" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="3Cw-Ng-tiT"/>
+                            <constraint firstItem="a2N-u8-CDP" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Ebw-38-mmw"/>
                             <constraint firstItem="R5N-s8-ARi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Oqn-Vk-naB"/>
                             <constraint firstItem="R5N-s8-ARi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="314" id="baT-q7-dOc"/>
                             <constraint firstItem="R5N-s8-ARi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="dJf-I0-7r0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="a2N-u8-CDP" secondAttribute="bottom" constant="10" id="gbC-cA-Zp4"/>
                         </constraints>
                     </view>
                 </viewController>

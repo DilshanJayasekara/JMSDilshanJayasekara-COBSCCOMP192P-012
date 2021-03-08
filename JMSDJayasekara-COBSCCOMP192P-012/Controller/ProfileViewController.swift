@@ -23,7 +23,10 @@ public struct Item: Codable {
 class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tblItemView: UITableView!
     
+    @IBOutlet weak var lblUserMobile: UILabel!
+    @IBOutlet weak var lblUserEmail: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var lblTotal: UILabel!
     let db = Firestore.firestore()
     @IBAction func btnEditClick(_ sender: Any) {
         print("Click Edit")
@@ -34,6 +37,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         self.performSegue(withIdentifier: "HometoLogin", sender: nil)
         UserDefaults.standard.removeObject(forKey: "login")
         UserDefaults.standard.removeObject(forKey: "mobile")
+        UserDefaults.standard.removeObject(forKey: "Email")
+        
     }
     
     override func viewDidLoad() {
@@ -41,6 +46,8 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         tblItemView.delegate = self
         tblItemView.dataSource = self
         getItemDetails()
+        lblUserEmail.text = UserDefaults.standard.string(forKey: "Email")
+        lblUserMobile.text = UserDefaults.standard.string(forKey: "mobile")
         guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
                let url = URL(string: urlString)else {
              return
@@ -68,8 +75,11 @@ class ProfileViewController: UIViewController,UITableViewDelegate, UITableViewDa
         let reciptCell = tblItemView.dequeueReusableCell(withIdentifier: "ReciptCell", for: indexPath) as! ReciptTableViewCell
         reciptCell.lblItem01.text = self.items[indexPath.row].item
         reciptCell.lblPrice01.text = self.items[indexPath.row].price
-        reciptCell.lblTotal.text = self.items[indexPath.row].total
+        reciptCell.lblTotal.text = "Rs. \(self.items[indexPath.row].total ?? "")"
         reciptCell.lblDate.text = self.items[indexPath.row].date
+        reciptCell.lblItem02.isHidden = true;
+        reciptCell.lblprice02.isHidden = true;
+        self.lblTotal.text = "Rs. \(self.items[indexPath.row].total ?? "")"
         return reciptCell;
     }
     

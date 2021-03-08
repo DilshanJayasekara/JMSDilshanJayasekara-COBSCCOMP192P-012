@@ -69,7 +69,7 @@ class ShowFoodDetailsViewController: UIViewController {
                         }
                         else
                         {
-                            lblOffer.text = "\(offer))% off"
+                            lblOffer.text = "\(offer) off"
                         }
                         }
                          

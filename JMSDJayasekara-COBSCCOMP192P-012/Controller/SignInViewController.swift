@@ -51,16 +51,16 @@ class SignInViewController: UIViewController {
           } else {
             self.getDetails()
            SPAlert.present(title: "Message", message: "User signs in successfully..!", preset: .custom(UIImage.init(named: "correct")!))
-            if(UserDefaults.standard.bool(forKey: "location"))
-            {
-                self.performSegue(withIdentifier: "SignIntoHome", sender: nil)
-            }
-            else
-            {
-                self.performSegue(withIdentifier: "LogintoAllowLocation", sender: nil)
-            }
-            
-            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                if(UserDefaults.standard.bool(forKey: "location"))
+                {
+                    self.performSegue(withIdentifier: "SignIntoHome", sender: nil)
+                }
+                else
+                {
+                    self.performSegue(withIdentifier: "LogintoAllowLocation", sender: nil)
+                }
+            })
           }
     }
 }
@@ -79,7 +79,7 @@ class SignInViewController: UIViewController {
                                 defaults.set(user, forKey: "useId")
                                 defaults.set(mobile, forKey: "mobile")
                                 defaults.set(true, forKey: "login")
-                                
+                                defaults.set(self.txtEmail.text!, forKey: "Email")
                                 }
                                 
                             }

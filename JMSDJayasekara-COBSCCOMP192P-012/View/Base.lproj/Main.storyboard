@@ -408,6 +408,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" id="AxD-5V-jGb"/>
                     <connections>
+                        <outlet property="lblTotal" destination="9Gy-DL-lKB" id="P2S-YT-LTr"/>
+                        <outlet property="lblUserEmail" destination="18u-cY-xmV" id="4pS-HC-L2u"/>
+                        <outlet property="lblUserMobile" destination="UCd-PT-3Pd" id="mq3-oz-3E9"/>
                         <outlet property="profileImage" destination="3tK-e6-Hko" id="6Vm-c1-HUf"/>
                         <outlet property="tblItemView" destination="rLs-G7-smT" id="lqE-pE-TFg"/>
                         <segue destination="EfF-zd-Udr" kind="presentation" identifier="ProfiletoUploadImage" modalPresentationStyle="fullScreen" id="zvp-Xi-g2O"/>
@@ -1059,7 +1062,8 @@
                         <outlet property="txtEmail" destination="qym-Ml-NjE" id="CVa-l3-nw9"/>
                         <outlet property="txtMobile" destination="34L-2G-fLH" id="hWI-vZ-wWG"/>
                         <outlet property="txtPassword" destination="feu-Lg-aFT" id="wS4-lB-a0F"/>
-                        <segue destination="GKV-kC-ovh" kind="presentation" identifier="SignUptoHome" modalPresentationStyle="fullScreen" id="gVu-bf-nvs"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="SignUptoLocation" modalPresentationStyle="fullScreen" id="oUh-fC-0ri"/>
+                        <segue destination="GKV-kC-ovh" kind="presentation" identifier="SignUptoHomeView" id="eEb-9c-5MM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADr-vc-etP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1107,7 +1111,7 @@
                                             <constraint firstAttribute="height" constant="40" id="ur9-Ds-6Pg"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -1225,10 +1229,21 @@
                                     <constraint firstItem="5gB-M7-CRI" firstAttribute="top" secondItem="pQw-N4-UUo" secondAttribute="top" id="wOO-u6-DUb"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powerd By NIBM Computing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mu3-p6-TNR">
+                                <rect key="frame" x="80" y="626.5" width="215.5" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="215.5" id="b6N-1B-cfU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="W6p-pg-KXM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="mu3-p6-TNR" firstAttribute="centerX" secondItem="SSJ-MH-PjW" secondAttribute="centerX" id="09a-au-oAx"/>
+                            <constraint firstItem="W6p-pg-KXM" firstAttribute="bottom" secondItem="mu3-p6-TNR" secondAttribute="bottom" constant="20" id="IVo-YK-7v9"/>
                             <constraint firstItem="pQw-N4-UUo" firstAttribute="centerX" secondItem="SSJ-MH-PjW" secondAttribute="centerX" id="WOU-vw-CsU"/>
                             <constraint firstItem="pQw-N4-UUo" firstAttribute="centerY" secondItem="SSJ-MH-PjW" secondAttribute="centerY" id="oQj-xX-VkL"/>
                         </constraints>
@@ -1341,8 +1356,9 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="zvp-Xi-g2O"/>
-        <segue reference="Q6a-Wc-l2g"/>
+        <segue reference="eEb-9c-5MM"/>
         <segue reference="84B-c5-aVP"/>
+        <segue reference="oUh-fC-0ri"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="book" catalog="system" width="128" height="102"/>

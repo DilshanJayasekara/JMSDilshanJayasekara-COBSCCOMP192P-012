@@ -73,11 +73,20 @@ class SignUpViewController: UIViewController {
                     } else {
                         print("Document successfully written!")
                         let defaults = UserDefaults.standard
-                        defaults.set(self.txtMobile.text!, forKey: "useId")
+                        defaults.set(self.txtEmail.text!, forKey: "Email")
                         defaults.set(self.txtMobile.text!, forKey: "mobile")
                         defaults.set(true, forKey: "login")
-                        self.dismiss(animated: true)
-                        self.performSegue(withIdentifier: "SignUptoHome", sender: nil)
+                        SPAlert.present(title: "Message", message: "User signup in successfully..!", preset: .custom(UIImage.init(named: "correct")!))
+                         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                             if(UserDefaults.standard.bool(forKey: "location"))
+                             {
+                                 self.performSegue(withIdentifier: "SignUptoHomeView", sender: nil)
+                             }
+                             else
+                             {
+                                 self.performSegue(withIdentifier: "SignUptoLocation", sender: nil)
+                             }
+                         })
                     }
                 }
               }
