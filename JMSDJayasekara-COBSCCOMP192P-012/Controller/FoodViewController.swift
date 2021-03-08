@@ -153,12 +153,16 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
         if(carts.isEmpty != true)
         { let count = 0;
             for rec in self.carts{
+                let formatter = DateFormatter()
+                formatter.timeStyle = .short
+                let dateString = formatter.string(from: Date())
                 db.collection("Recipts").document("\(mobile ?? "")").collection("Recipt").document("\(count )").setData([
                     "name": rec.foodName ?? "",
                     "price": rec.price ?? 0,
                     "qty"  : rec.qty ?? 0,
                     "amount": rec.amount ?? 0,
-                    "billTot": self.Totamount 
+                    "billTot": self.Totamount,
+                    "date": dateString
                 ], merge: true)
                 print("remove")
                 db.collection("Carts").document("\(mobile ?? "")").collection("\(mobile ?? "")").document(rec.foodName!).delete() { err in
