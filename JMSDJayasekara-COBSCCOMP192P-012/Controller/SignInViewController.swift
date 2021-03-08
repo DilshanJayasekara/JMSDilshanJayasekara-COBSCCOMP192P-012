@@ -73,7 +73,7 @@ class SignInViewController: UIViewController {
                                 defaults.set(true, forKey: "login")
                                 
                                 }
-                                self.performSegue(withIdentifier: "SignIntoHome", sender: nil)
+                                
                             }
                             
                         }

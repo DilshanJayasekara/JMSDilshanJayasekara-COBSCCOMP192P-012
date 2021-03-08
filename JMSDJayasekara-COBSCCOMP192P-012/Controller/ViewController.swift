@@ -11,12 +11,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     
     @IBAction func AllowClick(_ sender: Any) {
+        locationManager.requestAlwaysAuthorization()
         if CLLocationManager.locationServicesEnabled() {
                    switch locationManager.authorizationStatus {
                    case .restricted, .denied, .notDetermined:
                        print("Location services disabled")
                    case .authorizedAlways, .authorizedWhenInUse:
                        print("Location services enabled")
+                    self.performSegue(withIdentifier: "AllowLocationToHome", sender: nil)
                    default:
                        print("Location services disabled")
                    }
@@ -25,11 +27,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                }
     }
     override func viewWillAppear(_ animated: Bool) {
-        locationManager.requestAlwaysAuthorization()
+        //
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         // Do any additional setup after loading the view.
     }
 }
