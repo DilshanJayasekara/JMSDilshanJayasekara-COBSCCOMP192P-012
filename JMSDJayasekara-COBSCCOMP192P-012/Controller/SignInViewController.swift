@@ -51,7 +51,15 @@ class SignInViewController: UIViewController {
           } else {
             self.getDetails()
            SPAlert.present(title: "Message", message: "User signs in successfully..!", preset: .custom(UIImage.init(named: "correct")!))
-            self.performSegue(withIdentifier: "SignIntoHome", sender: nil)
+            if(UserDefaults.standard.bool(forKey: "location"))
+            {
+                self.performSegue(withIdentifier: "SignIntoHome", sender: nil)
+            }
+            else
+            {
+                self.performSegue(withIdentifier: "LogintoAllowLocation", sender: nil)
+            }
+            
             
           }
     }

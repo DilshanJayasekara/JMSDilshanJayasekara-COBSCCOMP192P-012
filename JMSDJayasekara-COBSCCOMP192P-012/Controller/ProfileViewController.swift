@@ -6,10 +6,20 @@
 //
 
 import UIKit
+import Firebase
+public struct Item: Codable {
+    let amount :String?
 
+    enum CodingKeys: String, CodingKey {
+        case amount
+       
+    }
+}
 class ProfileViewController: UIViewController {
 
+    
     @IBOutlet weak var profileImage: UIImageView!
+    
     @IBAction func btnEditClick(_ sender: Any) {
         print("Click Edit")
         self.performSegue(withIdentifier: "ProfiletoUploadImage", sender: nil)
@@ -32,15 +42,21 @@ class ProfileViewController: UIViewController {
                  return
              }
              DispatchQueue.main.async {
+                self.profileImage.layer.masksToBounds = true
+                self.profileImage.layer.cornerRadius = self.profileImage.bounds.width / 2
                  let image = UIImage(data: data)
                  self.profileImage.image = image
+                
              }
          })
         task.resume()
         // Do any additional setup after loading the view.
     }
+    func getItemDetails()
+    {
+        
+    }
     
-
     /*
     // MARK: - Navigation
 

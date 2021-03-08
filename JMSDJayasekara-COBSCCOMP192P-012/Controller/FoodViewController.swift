@@ -64,29 +64,45 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
             "qty":  FieldValue.increment(Int64(-1)),
             "price": Int(carts[tag].price ?? "0") ?? 0,
             "amount": curramount,
-            "discount": 0
+            "discount": discount
         ]) { err in
             if let err = err {
                 print("Error updating document: \(err)")
             } else {
                 print("Document successfully updated")
                 self.getCartsDetails()
+                self.tblCartView.reloadData()
             }
         }
+        if(curramount == 0 || curramount < 0)
+        {
+            print("remove")
+            db.collection("Carts").document("\(mobile ?? "")").collection("\(mobile ?? "")").document(carts[tag].foodName!).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed!")
+                    self.getCartsDetails()
+                    self.tblCartView.reloadData()
+                }
+            }
+        }
+       
     }
     func didPressAddButton(_ tag: Int) {
         print("I have pressed  add button with a tag: \(tag)")
         let mobile = UserDefaults.standard.string(forKey: "mobile")
         let amount = Int("\(carts[tag].amount ?? "0")") ?? 0
         let price  = Int("\(carts[tag].price ?? "0")") ?? 0
-        let curramount = (amount + price);
+        let discount = Int("\(carts[tag].discount ?? "0")") ?? 0
+        let curramount = (amount + (price - discount) );
         let cartRef = db.collection("Carts").document("\(mobile ?? "")").collection("\(mobile ?? "")").document(carts[tag].foodName!)
         cartRef.updateData([
             "name": carts[tag].foodName ?? "",
             "qty":  FieldValue.increment(Int64(1)),
             "price": Int(carts[tag].price ?? "0") ?? 0,
             "amount": curramount,
-            "discount": 0
+            "discount": discount
         ]) { err in
             if let err = err {
                 print("Error updating document: \(err)")
@@ -95,6 +111,7 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
                 self.getCartsDetails()
             }
         }
+        self.getCartsDetails()
     }
     @IBOutlet weak var btnOrder: UIButton!
     
@@ -123,6 +140,40 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
                      UIImage(named: "ChickenJunior")]
     let foodOffer = [("0%"),("10%"),("0%"),("0%"),("30%")]
     let foodQty   = [(1),(1),(1),(1),(1)]*/
+    @IBAction func btnOrderClick(_ sender: Any) {
+        let mobile = UserDefaults.standard.string(forKey: "mobile")
+        let randomInt = Int.random(in: 1000..<10000)
+        if(carts.isEmpty != true)
+        {
+            db.collection("Orders").document("\(mobile ?? "")").collection("Order").document("\(randomInt )").setData([
+                "orderId": randomInt,
+                "status": "15 min left"
+            ], merge: true)
+        }
+        if(carts.isEmpty != true)
+        { let count = 0;
+            for rec in self.carts{
+                db.collection("Recipts").document("\(mobile ?? "")").collection("Recipt").document("\(count )").setData([
+                    "name": rec.foodName ?? "",
+                    "price": rec.price ?? 0,
+                    "qty"  : rec.qty ?? 0,
+                    "amount": rec.amount ?? 0,
+                    "billTot": self.Totamount 
+                ], merge: true)
+                print("remove")
+                db.collection("Carts").document("\(mobile ?? "")").collection("\(mobile ?? "")").document(rec.foodName!).delete() { err in
+                    if let err = err {
+                        print("Error removing document: \(err)")
+                    } else {
+                        print("Document successfully removed!")
+                        self.getCartsDetails()
+                        self.tblCartView.reloadData()
+                    }
+                }
+            }
+            
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -290,7 +341,7 @@ class FoodViewController: UIViewController , UITableViewDelegate, UITableViewDat
                             let tot = Int("\(amount ?? 0)") ?? 0
                             self.Totamount = self.Totamount + tot
                             
-                            self.btnOrder.setTitle("Rs. \(self.Totamount )", for: .normal)
+                            self.btnOrder.setTitle("Order Rs. \(self.Totamount )", for: .normal)
                         }
                     
                     

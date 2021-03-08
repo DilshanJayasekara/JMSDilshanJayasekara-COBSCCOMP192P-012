@@ -13,12 +13,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func AllowClick(_ sender: Any) {
         locationManager.requestAlwaysAuthorization()
         if CLLocationManager.locationServicesEnabled() {
+            UserDefaults.standard.set(true, forKey: "location")
                    switch locationManager.authorizationStatus {
                    case .restricted, .denied, .notDetermined:
                        print("Location services disabled")
                    case .authorizedAlways, .authorizedWhenInUse:
                        print("Location services enabled")
                     self.performSegue(withIdentifier: "AllowLocationToHome", sender: nil)
+                    UserDefaults.standard.set(true, forKey: "location")
                    default:
                        print("Location services disabled")
                    }
